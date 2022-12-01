@@ -1,0 +1,49 @@
+{
+  "name": "hrow-frontend",
+  "version": "2.0.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently --kill-others \"yarn next dev\" \"yarn electron .\"",
+    "dev:next": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "precommit": "git add .",
+    "commit": "cz",
+    "postcommit": "git push"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
+  "dependencies": {
+    "@stitches/react": "^1.2.8",
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "electron": "^22.0.0",
+    "next": "12.2.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-to-print": "^2.14.7"
+  },
+  "devDependencies": {
+    "commitizen": "^4.2.5",
+    "concurrently": "^7.6.0",
+    "eslint": "8.22.0",
+    "eslint-config-next": "12.2.5",
+    "fs": "^0.0.1-security",
+    "husky": "^8.0.1"
+  }
+}
